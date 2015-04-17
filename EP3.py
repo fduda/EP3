@@ -8,18 +8,18 @@ Created on Mon Apr 13 19:32:56 2015
 
 ############################################## Arquivos
 
-alimento = open('alimentos.csv','r+')
+alimento = open('alimentos.csv','r+')  #abre o arquivo
 lista0 = alimento.readlines()
 lista=[]
 
-for i in lista0:
+for i in lista0:			#limpa e organiza o arquivo
     lista.append(i.strip().split(';'))    
 user1 = open('usuario.csv','r+')
 user0 = user1.readlines()
 user =[]
 
 for i in user0:
-    user.append(i.strip().split(','))
+    user.append(i.strip().split(','))		#limpa e organiza a lista
 
 ############################################## Funções
 
@@ -32,7 +32,7 @@ def TMB(idade, peso,sexo, altura):  #Quilogramas, Metros, Anos
 tmb = TMB(user[1][1], user[1][2], user[1][3], user[1][4])
 
 
-def Consumo_diario(tmb, fator):
+def Consumo_diario(tmb, fator):          #cria a função de consumo diário
     if fator == 'mínimo':
         return tmb*1.2 
     if fator == 'baixo':
@@ -46,7 +46,7 @@ def Consumo_diario(tmb, fator):
         
 consumo_diario = Consumo_diario(tmb, user[1][5])
 
-def IMC(peso, altura):
+def IMC(peso, altura):				#cria a função de IMC
     if float(altura) >= 1.80:        
         return ((1.3*int(peso))/(float(altura)**2.5)) - 1
     elif float(altura) <= 1.50:
@@ -56,3 +56,22 @@ def IMC(peso, altura):
         
         
 imc = IMC(user[1][2], user[1][4])
+
+
+def Condição(imc):			#Cria a função de Condição
+    if imc < 18.5:
+        return 'abaixo do peso'
+    elif 18.5<imc<24.9:
+        return 'normal'
+    elif 25<imc<29.9:
+        return 'sobrepeso'
+    elif imc >= 30:
+        return 'obeso'
+        
+condição_fisica = Condição(imc)
+
+print(imc)
+print(condição_fisica)
+
+print(tmb)
+print(consumo_diario)	
