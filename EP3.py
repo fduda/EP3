@@ -45,3 +45,14 @@ def Consumo_diario(tmb, fator):
         return tmb*1.9
         
 consumo_diario = Consumo_diario(tmb, user[1][5])
+
+def IMC(peso, altura):
+    if float(altura) >= 1.80:        
+        return ((1.3*int(peso))/(float(altura)**2.5)) - 1
+    elif float(altura) <= 1.50:
+        return ((1.3*int(peso))/(float(altura)**2.5)) + 1 
+    else:
+        return ((1.3*int(peso))/(float(altura)**2.5))
+        
+        
+imc = IMC(user[1][2], user[1][4])
