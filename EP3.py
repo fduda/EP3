@@ -30,3 +30,18 @@ def TMB(idade, peso,sexo, altura):  #Quilogramas, Metros, Anos
         return float(447.6 + (9.2*int(peso)) + (3.1*float(altura)) - (4.3*int(idade)))
         
 tmb = TMB(user[1][1], user[1][2], user[1][3], user[1][4])
+
+
+def Consumo_diario(tmb, fator):
+    if fator == 'mínimo':
+        return tmb*1.2 
+    if fator == 'baixo':
+        return tmb*1.375
+    if fator == 'médio':
+        return tmb*1.55
+    if fator == 'alto':
+        return tmb*1.725
+    if fator == 'muito alto':
+        return tmb*1.9
+        
+consumo_diario = Consumo_diario(tmb, user[1][5])
