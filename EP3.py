@@ -20,3 +20,13 @@ user =[]
 
 for i in user0:
     user.append(i.strip().split(','))
+
+############################################## Funções
+
+def TMB(idade, peso,sexo, altura):  #Quilogramas, Metros, Anos
+    if sexo == 'M':
+        return float(88.36 + (13.4*int(peso)) + (4.8*float(altura)) - (5.7*int(idade)))
+    if sexo == 'F':
+        return float(447.6 + (9.2*int(peso)) + (3.1*float(altura)) - (4.3*int(idade)))
+        
+tmb = TMB(user[1][1], user[1][2], user[1][3], user[1][4])
