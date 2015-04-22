@@ -81,6 +81,21 @@ def Condição(imc):          #Cria a função de Condição
         
 condição_fisica = Condição(imc)
 
+
+
+####################################################
+
+dias = {}
+
+for i in range (len(lista_alimentos)):                  #separa o que comeu em cada dia
+    
+    if not lista_alimentos[i][0] in dias:
+        dias[lista_alimentos[i][0]] = []
+    dias[lista_alimentos[i][0]].append(lista_alimentos[i])     
+
+
+
+
 print(imc)
 print(condição_fisica)
 
