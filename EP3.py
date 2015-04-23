@@ -137,3 +137,15 @@ def gorduras_comnsumidas(data):                                #função para ca
     for i in range ((len(dias[data])) - 1):
         gord += (float(dicionario[dias[data][i][1]][5])*(float(dias[data][i][2])*0.0
 
+################################################## Exercício
+
+exercicio = open("exercicio.csv","r+")
+dicionario1=exercicio.readlines()
+dicionario1={}
+
+
+met={"Squash": 12.0,"Boxe": 12.0,"Tenis": 7.0,"Futebol": 7.0,"Nadar": 10.0,"Rugby": 10.0,"Correr": 7.0}
+t=[45,60,90,30,50,45,50]
+x=t[]/60  # X = tempo de atividade fisica (em horas)
+
+{met[exercicio]}*(70)*t   #Equivalência Metabólica. Calcula a quantidade de calorias gasta por exercício
