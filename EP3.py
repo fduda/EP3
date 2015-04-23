@@ -5,11 +5,7 @@ Created on Mon Apr 13 19:32:56 2015
 @author: André, Felipe Duda, Felipe Gross
 """
 
-
-
-############################################## Arquivos
-
-############################################## Arquivos
+############################################## Arquivos e Listas
 
 alimento = open('alimentos.csv','r+')  #abre o arquivo
 lista0 = alimento.readlines()
@@ -24,12 +20,12 @@ user =[]
 for i in user0:
     user.append(i.strip().split(','))       #limpa e organiza a lista
 
-
-lista_alimentos=[]                           #cria uma lista de alimentos de acordo com o documento do usuário
+lista_alimentos=[]  
+  
 for i in range (3, len(user)):
-  lista_alimentos.append(user[i])
+    lista_alimentos.append(user[i])
+lista_alimentos.sort()
 
-lista_alimentos.sort()                         #organiza a lista de alimentos em ordem cronológica
 
 
 ############################################## Funções
@@ -82,26 +78,45 @@ def Condição(imc):          #Cria a função de Condição
 condição_fisica = Condição(imc)
 
 
-
-####################################################
+#################################################### dicionário
 
 dias = {}
 
-for i in range (len(lista_alimentos)):                  #separa o que comeu em cada dia
+for i in range (len(lista_alimentos)):
     
     if not lista_alimentos[i][0] in dias:
         dias[lista_alimentos[i][0]] = []
-    dias[lista_alimentos[i][0]].append(lista_alimentos[i])     
+    dias[lista_alimentos[i][0]].append(lista_alimentos[i])    
+
+dicionario = {}
+
+for i in range (len(lista)):
+    dicionario[lista[i][0]] = []
+    dicionario[lista[i][0]].append(lista[i])
+
+#################################################### dicionário
+
+dias = {}                                #Dicionário com os alimentos ingeridos pelo usuário, organizado por dia
+
+for i in range (len(lista_alimentos)):
+    
+    if not lista_alimentos[i][0] in dias:
+        dias[lista_alimentos[i][0]] = []
+    dias[lista_alimentos[i][0]].append(lista_alimentos[i])    
+
+dicionario = {}                         #dicionário com os dados dos alkimentos, nome, quantidade, calorias, proteinas, carboidratos e ggorduras
+
+for i in range (len(lista)):
+    dicionario[lista[i][0]] = []
+    dicionario[lista[i][0]].append(lista[i])
 
 
+############# Calorias, Proteinas, Carboidratos e Gorduras 
 
+def calorias_consumidas(data):
+    cals = 0    
+    for i in range (0,int(len(dias[data])) - 1):
+        cals += (dicionario[dias[data][i][1]][2])*(dias[data][i][2]*0.1)
 
-print(imc)
-print(condição_fisica)
+calorias_consumidas("07/04/15")
 
-print(tmb)
-print(consumo_diario)
-
-
-print(user[0],[1])
-print(lista_alimentos)
