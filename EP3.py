@@ -111,12 +111,29 @@ for i in range (len(lista)):
     dicionario[lista[i][0]].append(lista[i])
 
 
+
 ############# Calorias, Proteinas, Carboidratos e Gorduras 
 
-def calorias_consumidas(data):
-    cals = 0    
-    for i in range (0,int(len(dias[data])) - 1):
-        cals += (dicionario[dias[data][i][1]][2])*(dias[data][i][2]*0.1)
 
-calorias_consumidas("07/04/15")
+
+def calorias_consumidas(data):                                  #função para calcular o quanto de calorias foi consumido no respectivo dia
+    cals = 0    
+    for i in range ((len(dias[data])) - 1):
+        cals += (float(dicionario[dias[data][i][1]][2])*(float(dias[data][i][2])*0.01))
+
+def proteinas_consumidas(data):                                 #função para calcular o quanto de proteínas foi consumido no respectivo dia
+    prot = 0    
+    for i in range ((len(dias[data])) - 1):
+        prot += (float(dicionario[dias[data][i][1]][3])*(float(dias[data][i][2])*0.01))
+
+def carboidratos_consumidos(data):                              #função para calcular o quanto de carboidratos foi consumido no respectivo dia
+    carb = 0    
+    for i in range ((len(dias[data])) - 1):
+        carb += (float(dicionario[dias[data][i][1]][4])*(float(dias[data][i][2])*0.01))
+
+
+def gorduras_comnsumidas(data):                                #função para calcular o quanto de gordura foi consumido no respectivo dia
+    gord = 0
+    for i in range ((len(dias[data])) - 1):
+        gord += (float(dicionario[dias[data][i][1]][5])*(float(dias[data][i][2])*0.0
 
